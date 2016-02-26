@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 ** 
 ** Started on  Fri Feb 26 18:56:22 2016 edouard puillandre
-** Last update Fri Feb 26 21:09:10 2016 edouard puillandre
+** Last update Fri Feb 26 21:21:00 2016 edouard puillandre
 */
 
 #ifndef		SUDOKI_H_
@@ -20,6 +20,11 @@
 # include "get_next_line.h"
 
 # define SIZE (9)
+# define MAL_ERR_MSG "Malloc error\n"
+# define ARG_ERR_MSG "Incorrect number of argument\n"
+# define MAP_ERR_MSG "Map error\n"
+# define OPEN_ERR_MSG "Open file error\n"
+# define READ_ERR_MSG "Read error\n"
 
 typedef struct	s_grid
 {

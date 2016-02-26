@@ -1,11 +1,11 @@
 /*
-** get_nextline.h for getnextline in /home/robin/rendu/prog_elem/CPE_2015_getnextline
-**
-** Made by robin
-** Login   <robin@epitech.net>
-**
-** Started on  Mon Jan  4 15:07:16 2016 robin
-** Last update Wed Feb 10 16:29:27 2016 Voyevoda
+** get_next_line.h for sudoki-bi in /home/puilla_e/Semestre2/progelem/
+** 
+** Made by edouard puillandre
+** Login   <puilla_e@epitech.net>
+** 
+** Started on  Fri Feb 26 21:11:11 2016 edouard puillandre
+** Last update Fri Feb 26 21:11:15 2016 edouard puillandre
 */
 
 #ifndef GET_NEXT_LINE_H_
