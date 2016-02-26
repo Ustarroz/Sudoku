@@ -5,7 +5,7 @@
 ## Login   <puilla_e@epitech.net>
 ## 
 ## Started on  Mon Oct 12 20:34:36 2015 edouard puillandre
-## Last update Thu Feb 18 10:40:34 2016 edouard puillandre
+## Last update Fri Feb 26 20:31:54 2016 edouard puillandre
 ##
 
 DEBUG	=	yes
@@ -30,7 +30,7 @@ SRC	=	main.c
 
 RM	=	rm -f
 
-NAME	=	nom
+NAME	=	sudoki-bi
 
 OBJ	=	$(SRC:.c=.o)
 
