@@ -5,7 +5,7 @@
 ** Login   <voyevoda@epitech.net>
 **
 ** Started on  Fri Feb 26 21:37:53 2016 Voyevoda
-** Last update Sat Feb 27 00:44:52 2016 Voyevoda
+** Last update Sat Feb 27 00:46:16 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -36,7 +36,7 @@ int	my_check_line(char *str)
   space_true = 1;
   if (str[0] != '|' || str[LINE] != '|')
     {
-      fprintf(stderr; MAP_ERR_MSG);
+      fprintf(stderr, MAP_ERR_MSG);
       return (-1);
     }
   while (++i != LINE)

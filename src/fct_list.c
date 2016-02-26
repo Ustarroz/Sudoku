@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 ** 
 ** Started on  Fri Feb 26 21:10:32 2016 edouard puillandre
-** Last update Sat Feb 27 00:35:45 2016 edouard puillandre
+** Last update Sat Feb 27 00:46:50 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -51,7 +51,7 @@ t_sudo		*my_init_sudo(char *str)
     }
   sudo->first = NULL;
   sudo->last = NULL;
-  while (my_check_border(fd) == 0)
+  while (check_border(fd) == 0)
     if (add_elem(sudo, fd) == - 1)
       return (NULL);
   return (sudo->first == NULL ? NULL : sudo);
