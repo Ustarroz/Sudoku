@@ -5,12 +5,12 @@
 ** Login   <voyevoda@epitech.net>
 **
 ** Started on  Fri Feb 26 21:37:53 2016 Voyevoda
-** Last update Sat Feb 27 00:41:19 2016 edouard puillandre
+** Last update Sat Feb 27 00:44:52 2016 Voyevoda
 */
 
 #include "sudoki.h"
 
-int	my_check_border(int fd)
+int	check_border(int fd)
 {
   char	*str;
 
@@ -35,15 +35,23 @@ int	my_check_line(char *str)
   i = 0;
   space_true = 1;
   if (str[0] != '|' || str[LINE] != '|')
-    return (-1);
+    {
+      fprintf(stderr; MAP_ERR_MSG);
+      return (-1);
+    }
   while (++i != LINE)
     {
       if (space_true == 1 && str[i] != ' ')
-	return (-1);
+	{
+	  fprintf(stderr, MAP_ERR_MSG);
+	  return (-1);
+	}
       else if (space_true == 0 && str[i] <= '0' && str[i] >'9')
-	return (-1);
+	{
+	  fprintf(stderr, MAP_ERR_MSG);
+	  return (-1);
+	}
       space_true = 1 - space_true;
-      i++;
     }
   return (0);
 }
