@@ -5,10 +5,27 @@
 ** Login   <voyevoda@epitech.net>
 **
 ** Started on  Fri Feb 26 21:37:53 2016 Voyevoda
-** Last update Sat Feb 27 00:12:42 2016 Voyevoda
+** Last update Sat Feb 27 00:41:19 2016 edouard puillandre
 */
 
-#include "././include/sudoki.h"
+#include "sudoki.h"
+
+int	my_check_border(int fd)
+{
+  char	*str;
+
+  if ((str = get_next_line(fd)) == NULL)
+    {
+      fprintf(stderr, READ_ERR_MSG);
+      return (- 1);
+    }
+  if (strcmp(str, BORDER) != 0)
+    {
+      fprintf(stderr, MAP_ERR_MSG);
+      return (- 1);
+    }
+  return (0);
+}
 
 int	my_check_line(char *str)
 {
@@ -38,7 +55,7 @@ int	*my_get_line(int fd)
   int	*line;
 
   i = 0;
-  if ((s = get_next_line(0)) == NULL)
+  if ((s = get_next_line(fd)) == NULL)
     {
       fprintf(stderr, READ_ERR_MSG);
       return (NULL);
@@ -48,31 +65,31 @@ int	*my_get_line(int fd)
       fprintf(stderr, MAL_ERR_MSG);
       return (NULL);
     }
-    if ((my_check_line(s)) == -1)
-      return (NULL);
-    while (++i < SIZE)
-      {
-	line[i] == s[i] - 48;
-	i++;
-      }
-    return (0);
+  if ((my_check_line(s)) == -1)
+    return (NULL);
+  while (++i < SIZE)
+    {
+      line[i] = s[i] - 48;
+      i++;
+    }
+  return (line);
 }
 
-int	**my_init_grid(char *av)
+int	**my_init_grid(int fd)
 {
-  int	fd;
   int	**tab;
   int	i;
 
   i = -1;
-  fd = open(av, O_RDONLY);
   if ((tab = malloc(sizeof(int *) * (SIZE))) == NULL)
     {
       fprintf(stderr, MAL_ERR_MSG);
       return (NULL);
     }
   while (++i < SIZE)
-    if ((tab[i] = my_get_line(fd) == NULL))
+    if ((tab[i] = my_get_line(fd)) == NULL)
       return (NULL);
-  check_grid(tab);
+  if (check_border(fd) == - 1)
+    return (NULL);
+  return (tab);
 }

@@ -1,19 +1,14 @@
 /*
-** get_next_line.c for getnextline in /home/robin/rendu/prog_elem/CPE_2015_getnextline
+** get_next_line.c for getnextline in /home/robin/rendu/prog_elem/
 **
 ** Made by robin
 ** Login   <robin@epitech.net>
 **
 ** Started on  Mon Jan  4 15:11:24 2016 robin
-** Last update Sun Feb 21 20:47:49 2016 Voyevoda
+** Last update Sat Feb 27 00:31:01 2016 edouard puillandre
 */
 
-#include "./include/get_next_line.h"
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "sudoki.h"
 
 int	my_strlen(char *str)
 {

@@ -5,7 +5,7 @@
 ## Login   <puilla_e@epitech.net>
 ## 
 ## Started on  Mon Oct 12 20:34:36 2015 edouard puillandre
-## Last update Fri Feb 26 20:31:54 2016 edouard puillandre
+## Last update Sat Feb 27 00:34:22 2016 edouard puillandre
 ##
 
 DEBUG	=	yes
@@ -23,10 +23,14 @@ CFLAGS	+=	-g		\
 		-D DEBUG	
 endif
 
-LDFLAGS	=	-lmy	\
-		-L./lib/
+LDFLAGS	=
 
-SRC	=	main.c
+SRC	=	src/main.c		\
+		src/check_fct.c		\
+		src/fct_list.c		\
+		src/fct_resolv.c	\
+		src/get_next_line.c	\
+		src/init_grid.c
 
 RM	=	rm -f
 

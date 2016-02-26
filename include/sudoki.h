@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 ** 
 ** Started on  Fri Feb 26 18:56:22 2016 edouard puillandre
-** Last update Sat Feb 27 00:12:45 2016 edouard puillandre
+** Last update Sat Feb 27 00:41:49 2016 edouard puillandre
 */
 
 #ifndef		SUDOKI_H_
@@ -36,29 +36,31 @@
 typedef struct	s_grid
 {
   int		**tab;
-  struct s_sudo	*next;
+  struct s_grid	*next;
 }		t_grid;
 
 typedef struct	s_sudo
 {
-  t_sudo	*first;
-  t_sudo	*last;
+  t_grid	*first;
+  t_grid	*last;
 }		t_sudo;
 
-s_sudo	*my_init_sudo(char *str);
+t_sudo	*my_init_sudo(char *str);
 int	**my_init_grid(int fd);
 int	*my_get_line(int fd);
 int	my_check_line(char *str);
+int	check_border(int fd);
 int	check_grid(int **tab);
 int	check_digit(int nb, int *check);
 int	check_column(int **tab, int i, int line_true);
-int	check_square(int tab, int i, int j);
+int	check_square(int **tab, int i, int j);
 void	my_print_grid(int **tab);
-void	my_print_sudo(s_sudo *sudo);
+void	my_print_sudo(t_sudo *sudo);
 int	my_resolve_grid(int **tab);
 int	my_check_border(int fd);
 void	fill_minus_one(int **tab);
 int	my_resolve_brute(int **tab);
 int	my_resolve_softer(int **tab);
+void	free_sudo(t_sudo *sudo);
 
 #endif /* !SUDOKI_H_ */
