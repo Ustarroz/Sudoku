@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 ** 
 ** Started on  Fri Feb 26 18:56:22 2016 edouard puillandre
-** Last update Fri Feb 26 21:21:00 2016 edouard puillandre
+** Last update Fri Feb 26 21:35:12 2016 edouard puillandre
 */
 
 #ifndef		SUDOKI_H_
@@ -39,12 +39,13 @@ typedef struct	s_sudo
 }		t_sudo;
 
 s_sudo	*my_init_sudo(char *str);
-int	**my_init_grid(int fd);
+int	**my_init_grid(int fd, int first_true);
 int	*my_get_line(int fd);
 int	my_check_line(char *str);
 int	check_grid(int **tab);
 void	my_print_grid(int **tab);
 void	my_print_sudo(s_sudo *sudo);
 int	my_resolve_grid(int **tab);
+int	my_check_border(int fd);
 
 #endif /* !SUDOKI_H_ */
