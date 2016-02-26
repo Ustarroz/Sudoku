@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 18:57:29 2016 edouard puillandre
-** Last update Fri Feb 26 21:21:57 2016 Voyevoda
+** Last update Fri Feb 26 21:25:47 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -14,7 +14,8 @@ int	main(int ac, char **av)
 {
   if (ac == 2)
     {
-
+      if ((my_init_grid(av[1]) == NULL);
+	  return (1);
     }
   else
     fprintf(stderr, "%s\n", ARG_ERG_MSG);
