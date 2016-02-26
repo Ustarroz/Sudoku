@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 ** 
 ** Started on  Fri Feb 26 18:56:22 2016 edouard puillandre
-** Last update Fri Feb 26 21:35:12 2016 edouard puillandre
+** Last update Fri Feb 26 22:11:51 2016 edouard puillandre
 */
 
 #ifndef		SUDOKI_H_
@@ -17,6 +17,7 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <unistd.h>
+# include <string.h>
 # include "get_next_line.h"
 
 # define SIZE (9)
@@ -25,6 +26,8 @@
 # define MAP_ERR_MSG "Map error\n"
 # define OPEN_ERR_MSG "Open file error\n"
 # define READ_ERR_MSG "Read error\n"
+# define SEPARATOR "####################"
+# define BORDER "|------------------|"
 
 typedef struct	s_grid
 {
