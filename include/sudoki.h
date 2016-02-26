@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 ** 
 ** Started on  Fri Feb 26 18:56:22 2016 edouard puillandre
-** Last update Fri Feb 26 22:11:51 2016 edouard puillandre
+** Last update Fri Feb 26 23:43:31 2016 edouard puillandre
 */
 
 #ifndef		SUDOKI_H_
@@ -21,6 +21,10 @@
 # include "get_next_line.h"
 
 # define SIZE (9)
+# define LINE (19)
+# define SQUARE (3)
+# define COL_TRUE (1)
+# define LINE_TRUE (0)
 # define MAL_ERR_MSG "Malloc error\n"
 # define ARG_ERR_MSG "Incorrect number of argument\n"
 # define MAP_ERR_MSG "Map error\n"
@@ -42,7 +46,7 @@ typedef struct	s_sudo
 }		t_sudo;
 
 s_sudo	*my_init_sudo(char *str);
-int	**my_init_grid(int fd, int first_true);
+int	**my_init_grid(int fd);
 int	*my_get_line(int fd);
 int	my_check_line(char *str);
 int	check_grid(int **tab);
@@ -50,5 +54,7 @@ void	my_print_grid(int **tab);
 void	my_print_sudo(s_sudo *sudo);
 int	my_resolve_grid(int **tab);
 int	my_check_border(int fd);
+int	check_digit(int nb, int *check);
+void	fill_minus_one(int **tab);
 
 #endif /* !SUDOKI_H_ */

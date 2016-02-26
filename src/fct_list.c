@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 ** 
 ** Started on  Fri Feb 26 21:10:32 2016 edouard puillandre
-** Last update Fri Feb 26 22:18:28 2016 edouard puillandre
+** Last update Fri Feb 26 23:44:43 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -21,6 +21,8 @@ int		add_elem(t_sudo *sudo, int fd)
     }
   if ((grid->tab = my_init_grid(fd)) == NULL)
     return (- 1);
+  if (check_grid(grid->tab) == - 1)
+    fill_minus_one(grid->tab);
   grid->next = NULL;
   if (sudo->first == NULL)
     {
@@ -87,7 +89,10 @@ void	my_print_grid(int **grid)
       j = - 1;
       printf("|");
       while (j < SIZE)
-	print(" %d", tab[i][j]);
+	if (tab[i][j] == - 1)
+	  printf(" X");
+	else
+	  printf(" %d", tab[i][j]);
       printf("|");
     }
   printf(BORDER);
