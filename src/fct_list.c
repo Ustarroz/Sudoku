@@ -1,11 +1,11 @@
 /*
 ** fct_list.c for sudoki-bi in /home/puilla_e/Semestre2/progelem/
-** 
+**
 ** Made by edouard puillandre
 ** Login   <puilla_e@epitech.net>
-** 
+**
 ** Started on  Fri Feb 26 21:10:32 2016 edouard puillandre
-** Last update Sat Feb 27 14:16:36 2016 edouard puillandre
+** Last update Sat Feb 27 14:28:00 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -52,8 +52,12 @@ t_sudo		*my_init_sudo(char *str)
   sudo->first = NULL;
   sudo->last = NULL;
   while (check_border(fd) == 0)
-    if (add_elem(sudo, fd) == - 1)
-      return (NULL);
+    {
+      write(1, "d", 1);
+      if (add_elem(sudo, fd) == - 1)
+	return (NULL);
+    }
+      write(1, "c", 1);
   return (sudo->first == NULL ? NULL : sudo);
 }
 
