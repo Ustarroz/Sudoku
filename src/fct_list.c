@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 21:10:32 2016 edouard puillandre
-** Last update Sat Feb 27 14:28:00 2016 Voyevoda
+** Last update Sat Feb 27 14:40:53 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -21,6 +21,7 @@ int		add_elem(t_sudo *sudo, int fd)
     }
   if ((grid->tab = my_init_grid(fd)) == NULL)
     return (- 1);
+  my_print_grid( grid->tab);
   if (check_grid(grid->tab) == - 1)
     fill_minus_one(grid->tab);
   grid->next = NULL;
@@ -53,11 +54,11 @@ t_sudo		*my_init_sudo(char *str)
   sudo->last = NULL;
   while (check_border(fd) == 0)
     {
-      write(1, "d", 1);
+      write(1, "boucle sudo\n", 12);
       if (add_elem(sudo, fd) == - 1)
 	return (NULL);
     }
-      write(1, "c", 1);
+      write(1, "sortie boucle\n", 14);
   return (sudo->first == NULL ? NULL : sudo);
 }
 

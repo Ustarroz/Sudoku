@@ -5,7 +5,7 @@
 ** Login   <voyevoda@epitech.net>
 **
 ** Started on  Fri Feb 26 21:37:53 2016 Voyevoda
-** Last update Sat Feb 27 14:32:59 2016 Voyevoda
+** Last update Sat Feb 27 14:59:18 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -57,13 +57,28 @@ int	my_check_line(char *str)
   return (0);
 }
 
+void	str_to_int(char *s, int *line)
+{
+  int	i;
+  int	j;
+
+  j = -1;
+  i = 2;
+  while (++j != SIZE)
+    {
+      if (s[i] == ' ')
+	line[j] = 0;
+      else
+	line[j] = s[i] - 48;
+	i = i + 2;
+    }
+}
+
 int	*my_get_line(int fd)
 {
   char	*s;
-  int	i;
   int	*line;
 
-  i = 0;
   if ((s = get_next_line(fd)) == NULL)
     {
       fprintf(stderr, READ_ERR_MSG);
@@ -76,11 +91,7 @@ int	*my_get_line(int fd)
     }
   if ((my_check_line(s)) == -1)
     return (NULL);
-  while (i < SIZE)
-    {
-      line[i] = s[i] - 48;
-      i++;
-    }
+  str_to_int(s, line);
   return (line);
 }
 
