@@ -5,10 +5,24 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 23:49:08 2016 edouard puillandre
-** Last update Sat Feb 27 18:24:16 2016 edouard puillandre
+** Last update Sat Feb 27 18:47:29 2016 edouard puillandre
 */
 
 #include "sudoki.h"
+
+int	seek_the_next_digit(int **tab, int i, int j, int check)
+{
+  int	k;
+
+  k = - 1;
+  while(++k < SIZE)
+    {
+      if ((check & 1) == 0 && (k + 1) > tab[i][j])
+	return (k + 1);
+      check = check >> 1;
+    }
+  return (0);
+}
 
 int	next_digit(int **tab, int i, int j)
 {
@@ -33,14 +47,7 @@ int	next_digit(int **tab, int i, int j)
 	if (tab[k][l] != 0 && l != j)
 	  check = check | 1 << (ABS(tab[k][l]) - 1);
     }
-  k = - 1;
-  while(++k < SIZE)
-    {
-      if ((check & 1) == 0)
-	return (k + 1);
-      check = check >> 1;
-    }
-  return (0);
+  return (seek_the_next_digit(tab, i, j, check));
 }
 
 int	resolve_line(int **tab, int *i, int dir)
@@ -61,8 +68,6 @@ int	resolve_line(int **tab, int *i, int dir)
       j = j + dir;
       if (j < 0)
 	return (- 1);
-      /* printf("j = %d\tdir = %d\n", j, dir); */
-      /* my_print_grid(tab); */
     }
   return (1);
 }
@@ -77,8 +82,6 @@ int	my_resolve_brute(int **tab)
   while (i < SIZE)
     {
       dir = resolve_line(tab, &i, dir);
-      printf("i = %d\tdir = %d\n", i, dir);
-      my_print_grid(tab);
       i = i + dir;
       if (i < - 1)
 	{
