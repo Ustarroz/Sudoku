@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 ** 
 ** Started on  Fri Feb 26 22:33:33 2016 edouard puillandre
-** Last update Sat Feb 27 14:26:30 2016 edouard puillandre
+** Last update Sat Feb 27 14:38:23 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -16,10 +16,10 @@ void	fill_minus_one(int **tab)
   int	j;
 
   i = - 1;
-  while (i < SIZE)
+  while (++i < SIZE)
     {
       j = - 1;
-      while (j < SIZE)
+      while (++j < SIZE)
 	tab[i][j] = - 1;
     }
 }
