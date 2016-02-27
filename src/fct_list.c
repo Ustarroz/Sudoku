@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 21:10:32 2016 edouard puillandre
-** Last update Sat Feb 27 17:07:51 2016 Voyevoda
+** Last update Sat Feb 27 17:15:21 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -30,7 +30,10 @@ int		add_elem(t_sudo *sudo, int fd)
       sudo->last = grid;
     }
   else
-    sudo->last->next = grid;
+    {
+      sudo->last->next = grid;
+      sudo->last = grid;
+    }
   return (0);
 }
 
