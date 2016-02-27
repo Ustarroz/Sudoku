@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 ** 
 ** Started on  Fri Feb 26 18:56:22 2016 edouard puillandre
-** Last update Sat Feb 27 00:41:49 2016 edouard puillandre
+** Last update Sat Feb 27 15:26:13 2016 edouard puillandre
 */
 
 #ifndef		SUDOKI_H_
@@ -61,6 +61,7 @@ int	my_check_border(int fd);
 void	fill_minus_one(int **tab);
 int	my_resolve_brute(int **tab);
 int	my_resolve_softer(int **tab);
+void	my_resolve_all(t_sudo *sudo);
 void	free_sudo(t_sudo *sudo);
 
 #endif /* !SUDOKI_H_ */
