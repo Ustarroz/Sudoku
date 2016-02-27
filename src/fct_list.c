@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 21:10:32 2016 edouard puillandre
-** Last update Sat Feb 27 15:52:27 2016 edouard puillandre
+** Last update Sat Feb 27 17:07:51 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -21,7 +21,6 @@ int		add_elem(t_sudo *sudo, int fd)
     }
   if ((grid->tab = my_init_grid(fd)) == NULL)
     return (- 1);
-  my_print_grid( grid->tab);
   if (check_grid(grid->tab) == - 1)
     fill_minus_one(grid->tab);
   grid->next = NULL;
