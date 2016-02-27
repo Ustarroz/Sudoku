@@ -5,7 +5,7 @@
 ** Login   <voyevoda@epitech.net>
 **
 ** Started on  Fri Feb 26 21:37:53 2016 Voyevoda
-** Last update Sat Feb 27 00:46:16 2016 edouard puillandre
+** Last update Sat Feb 27 14:13:53 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -75,7 +75,7 @@ int	*my_get_line(int fd)
     }
   if ((my_check_line(s)) == -1)
     return (NULL);
-  while (++i < SIZE)
+  while (i < SIZE)
     {
       line[i] = s[i] - 48;
       i++;
