@@ -5,7 +5,7 @@
 ** Login   <voyevoda@epitech.net>
 **
 ** Started on  Fri Feb 26 21:37:53 2016 Voyevoda
-** Last update Sat Feb 27 19:01:36 2016 edouard puillandre
+** Last update Sat Feb 27 20:07:08 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -45,7 +45,7 @@ int	my_check_line(char *str)
 	  fprintf(stderr, MAP_ERR_MSG);
 	  return (-1);
 	}
-      else if (space_true == 0 && str[i] <= '0' && str[i] >'9')
+      else if (space_true == 0 && (str[i] <= '0' || str[i] >'9'))
 	{
 	  fprintf(stderr, MAP_ERR_MSG);
 	  return (-1);
