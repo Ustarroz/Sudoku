@@ -5,47 +5,56 @@
 ** Login   <puilla_e@epitech.net>
 ** 
 ** Started on  Fri Feb 26 23:49:08 2016 edouard puillandre
-** Last update Sat Feb 27 15:25:45 2016 edouard puillandre
+** Last update Sat Feb 27 15:36:06 2016 edouard puillandre
 */
 
 #include "sudoki.h"
 
-void	resolve_line(int **tab, int *i)
+int	resolve_line(int **tab, int *i, int check)
 {
   int	j;
 
   j = - 1;
   while (++j < SIZE)
     {
-      tab[*i][j] = tab[*i][j] + 1;
-      if (check_column(tab, *i, LINE_TRUE) == - 1 ||
-	  check_column(tab, *i, COL_TRUE) == - 1 ||
-	  check_square(tab, *i / SQUARE, j / SQUARE) == - 1)
+      if (check == 1 || tab[*i][j] == 0)
 	{
-	  if (tab[*i][j] == 9)
+	  tab[*i][j] = tab[*i][j] + 1;
+	  if (check_column(tab, *i, LINE_TRUE) == - 1 ||
+	      check_column(tab, *i, COL_TRUE) == - 1 ||
+	      check_square(tab, *i / SQUARE, j / SQUARE) == - 1)
 	    {
-	      tab[*i][j] = 0;
-	      j = j - 2;
+	      check = 1;
+	      if (tab[*i][j] == 9)
+		{
+		  tab[*i][j] = 0;
+		  j = j - 2;
+		}
+	      else
+		j = j - 1;
 	    }
 	  else
-	    j = j - 1;
-	}
-      if (j < - 1)
-	{
-	  j = SIZE;
-	  *i = *i - 2;
+	    check = 0;
+	  if (j < - 1)
+	    {
+	      *i = *i - 2;
+	      return (1);
+	    }
 	}
     }
+  return (0);
 }
 
 int	my_resolve_brute(int **tab)
 {
   int	i;
+  int	check;
 
   i = - 1;
+  check = 0;
   while (++i < SIZE)
     {
-      resolve_line(tab, &i);
+      check = resolve_line(tab, &i, check);
       if (i < - 1)
 	{
 	  fill_minus_one(tab);
