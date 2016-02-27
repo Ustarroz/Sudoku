@@ -22,9 +22,7 @@ int		main(int ac, char **av)
     }
   if ((sudo = my_init_sudo(av[1])) == NULL)
     return (1);
-  write(1, "a", 1);
   my_print_sudo(sudo);
-  write(1, "b", 1);
   free_sudo(sudo);
   return (0);
 }
