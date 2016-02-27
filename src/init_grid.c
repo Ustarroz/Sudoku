@@ -5,7 +5,7 @@
 ** Login   <voyevoda@epitech.net>
 **
 ** Started on  Fri Feb 26 21:37:53 2016 Voyevoda
-** Last update Sat Feb 27 15:52:16 2016 Voyevoda
+** Last update Sat Feb 27 19:01:36 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -18,9 +18,11 @@ int	check_border(int fd)
     return (- 1);
   if (strcmp(str, BORDER) != 0)
     {
+      free(str);
       fprintf(stderr, MAP_ERR_MSG);
       return (- 2);
     }
+  free(str);
   return (0);
 }
 
@@ -82,12 +84,17 @@ int	*my_get_line(int fd)
     }
   if ((line = malloc(sizeof(int) * (SIZE))) == NULL)
     {
+      free(s);
       fprintf(stderr, MAL_ERR_MSG);
       return (NULL);
     }
   if ((my_check_line(s)) == -1)
-    return (NULL);
+    {
+      free(s);
+      return (NULL);
+    }
   str_to_int(s, line);
+  free(s);
   return (line);
 }
 
