@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 23:49:08 2016 edouard puillandre
-** Last update Sat Feb 27 19:04:47 2016 edouard puillandre
+** Last update Sat Feb 27 20:03:09 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -83,7 +83,7 @@ int	my_resolve_brute(int **tab)
     {
       dir = resolve_line(tab, &i, dir);
       i = i + dir;
-      if (i < - 1)
+      if (i < 0)
 	{
 	  fill_minus_one(tab);
 	  return (0);
