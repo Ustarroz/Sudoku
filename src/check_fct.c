@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 ** 
 ** Started on  Fri Feb 26 22:33:33 2016 edouard puillandre
-** Last update Sat Feb 27 00:24:36 2016 edouard puillandre
+** Last update Sat Feb 27 14:26:30 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -45,7 +45,7 @@ int	check_column(int **tab, int i, int line_true)
 
   j = - 1;
   check = 0;
-  while (j < SIZE)
+  while (++j < SIZE)
     {
       if (line_true == 0)
 	{
