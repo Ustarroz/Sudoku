@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 21:10:32 2016 edouard puillandre
-** Last update Sat Feb 27 20:27:06 2016 edouard puillandre
+** Last update Sat Feb 27 22:34:49 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -37,17 +37,11 @@ int		add_elem(t_sudo *sudo, int fd)
   return (0);
 }
 
-t_sudo		*my_init_sudo(char *str)
+t_sudo		*my_init_sudo()
 {
   t_sudo	*sudo;
-  int		fd;
   int		check;
 
-  if ((fd = open(str, O_RDONLY)) == - 1)
-    {
-      fprintf(stderr, OPEN_ERR_MSG);
-      return (NULL);
-    }
   if ((sudo = malloc(sizeof(t_sudo))) == NULL)
     {
       fprintf(stderr, MAL_ERR_MSG);
@@ -55,8 +49,8 @@ t_sudo		*my_init_sudo(char *str)
     }
   sudo->first = NULL;
   sudo->last = NULL;
-  while ((check = check_border(fd)) == 0)
-    if (add_elem(sudo, fd) == - 1)
+  while ((check = check_border(0)) == 0)
+    if (add_elem(sudo, 0) == - 1)
       return (NULL);
   if (check == - 2)
     return (NULL);

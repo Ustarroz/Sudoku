@@ -5,18 +5,33 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 18:57:29 2016 edouard puillandre
-** Last update Sat Feb 27 18:54:38 2016 Voyevoda
+** Last update Sat Feb 27 22:55:14 2016 edouard puillandre
 */
 
 #include "sudoki.h"
 
-int	check_av(char *av)
+int	check_av(char *str)
 {
-  if (opendir(av) != NULL)
+  int	len;
+  int	i;
+  int	k;
+
+  len = strlen(str);
+  if (len != LEN_DOUBLE || len != LEN_TRIPLE ||
+      len != LEN_QUADRU)
+    return (1);
+  i = - 1;
+  while (str[++i] != '\0')
     {
-      fprintf(stderr, OPEN_ERR_MSG);
-      return (-1);
+      k = i;
+      while (str[++k] != '\0')
+	if (str[k] == str[i])
+	  {
+	    fprintf(stderr, DOUBLE_ERR_MSG);
+	    return (1);
+	  }
     }
+  k = - 1;
   return (0);
 }
 
@@ -24,14 +39,12 @@ int		main(int ac, char **av)
 {
   t_sudo	*sudo;
 
-  if (ac != 2)
+  if (ac != 2 || check_av(av[1]) == 1)
     {
-      fprintf(stderr, "%s", ARG_ERR_MSG);
+      fprintf(stderr, ARG_ERR_MSG);
       return (1);
     }
-  if ((check_av(av[1])) == -1)
-    return (-1);
-  if ((sudo = my_init_sudo(av[1])) == NULL)
+  if ((sudo = my_init_sudo()) == NULL)
     return (1);
   my_resolve_all(sudo);
   my_print_sudo(sudo);

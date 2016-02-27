@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 18:56:22 2016 edouard puillandre
-** Last update Sat Feb 27 20:26:25 2016 edouard puillandre
+** Last update Sat Feb 27 22:54:38 2016 edouard puillandre
 */
 
 #ifndef		SUDOKI_H_
@@ -31,9 +31,13 @@
 # define MAP_ERR_MSG "MAP ERROR\n"
 # define OPEN_ERR_MSG "Open file error\n"
 # define READ_ERR_MSG "Read error\n"
+# define DOUBLE_ERR_MSG "Error: char two times in your base!\n"
 # define SEPARATOR "####################\n"
 # define BORDER "|------------------|"
 # define ABS(x) ((x) < 0 ? - (x) : (x))
+# define LEN_DOUBLE (4)
+# define LEN_TRIPLE (9)
+# define LEN_QUADRU (16)
 
 typedef struct	s_grid
 {
@@ -47,7 +51,7 @@ typedef struct	s_sudo
   t_grid	*last;
 }		t_sudo;
 
-t_sudo	*my_init_sudo(char *str);
+t_sudo	*my_init_sudo();
 int	**my_init_grid(int fd);
 int	*my_get_line(int fd);
 int	my_check_line(char *str);
