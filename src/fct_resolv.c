@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 23:49:08 2016 edouard puillandre
-** Last update Sat Feb 27 18:24:16 2016 edouard puillandre
+** Last update Sat Feb 27 18:38:13 2016 Voyevoda
 */
 
 #include "sudoki.h"
