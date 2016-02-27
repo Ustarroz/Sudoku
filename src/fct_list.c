@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 ** 
 ** Started on  Fri Feb 26 21:10:32 2016 edouard puillandre
-** Last update Sat Feb 27 00:46:50 2016 edouard puillandre
+** Last update Sat Feb 27 14:16:36 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -84,11 +84,11 @@ void	my_print_grid(int **grid)
 
   i = - 1;
   printf(BORDER);
-  while (i < SIZE)
+  while (++i < SIZE)
     {
       j = - 1;
       printf("|");
-      while (j < SIZE)
+      while (++j < SIZE)
 	if (grid[i][j] == - 1)
 	  printf(" X");
 	else
