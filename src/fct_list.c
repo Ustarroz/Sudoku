@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 21:10:32 2016 edouard puillandre
-** Last update Sat Feb 27 18:26:20 2016 edouard puillandre
+** Last update Sat Feb 27 20:00:16 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -56,10 +56,8 @@ t_sudo		*my_init_sudo(char *str)
   sudo->first = NULL;
   sudo->last = NULL;
   while ((check = check_border(fd)) == 0)
-    {
-      if (add_elem(sudo, fd) == - 1)
-	return (NULL);
-    }
+    if (add_elem(sudo, fd) == - 1)
+      return (NULL);
   if (check == - 2)
     return (NULL);
   return (sudo->first == NULL ? NULL : sudo);
@@ -100,10 +98,8 @@ void	my_print_grid(int **grid)
       while (++j < SIZE)
 	if (grid[i][j] == 10)
 	  printf(" X");
-	else if (grid[i][j] < 0)
-	  printf(" %d", grid[i][j]);
 	else
-	  printf("  %d", grid[i][j]);
+	  printf(" %d", ABS(grid[i][j]));
       printf("|\n");
     }
   printf(BORDER);
