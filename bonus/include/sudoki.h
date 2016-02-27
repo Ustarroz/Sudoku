@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 18:56:22 2016 edouard puillandre
-** Last update Sat Feb 27 20:31:05 2016 edouard puillandre
+** Last update Sat Feb 27 20:26:25 2016 edouard puillandre
 */
 
 #ifndef		SUDOKI_H_
@@ -47,7 +47,7 @@ typedef struct	s_sudo
   t_grid	*last;
 }		t_sudo;
 
-t_sudo	*my_init_sudo();
+t_sudo	*my_init_sudo(char *str);
 int	**my_init_grid(int fd);
 int	*my_get_line(int fd);
 int	my_check_line(char *str);
