@@ -5,7 +5,7 @@
 ** Login   <voyevoda@epitech.net>
 **
 ** Started on  Fri Feb 26 21:37:53 2016 Voyevoda
-** Last update Sat Feb 27 15:13:06 2016 Voyevoda
+** Last update Sat Feb 27 15:52:16 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -65,8 +65,8 @@ void	str_to_int(char *s, int *line)
       if (s[i] == ' ')
 	line[j] = 0;
       else
-	line[j] = s[i] - 48;
-	i = i + 2;
+	line[j] =  48 - s[i];
+      i = i + 2;
     }
 }
 

@@ -1,11 +1,11 @@
 /*
 ** fct_resolv.c for sudoki-bi in /home/puilla_e/Semestre2/progelem/
-** 
+**
 ** Made by edouard puillandre
 ** Login   <puilla_e@epitech.net>
-** 
+**
 ** Started on  Fri Feb 26 23:49:08 2016 edouard puillandre
-** Last update Sat Feb 27 15:50:52 2016 edouard puillandre
+** Last update Sat Feb 27 16:11:58 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -22,7 +22,6 @@ int	resolve_line(int **tab, int *i)
 	  check_column(tab, *i, COL_TRUE) == - 1 ||
 	  check_square(tab, *i / SQUARE, j / SQUARE) == - 1)
 	{
-	  check = 1;
 	  if (tab[*i][j] == 9)
 	    {
 	      tab[*i][j] = 0;
@@ -43,7 +42,6 @@ int	resolve_line(int **tab, int *i)
 int	my_resolve_brute(int **tab)
 {
   int	i;
-  int	check;
 
   i = - 1;
   while (++i < SIZE)
