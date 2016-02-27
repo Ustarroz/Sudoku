@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 ** 
 ** Started on  Fri Feb 26 18:56:22 2016 edouard puillandre
-** Last update Sat Feb 27 15:26:13 2016 edouard puillandre
+** Last update Sat Feb 27 15:43:05 2016 edouard puillandre
 */
 
 #ifndef		SUDOKI_H_
@@ -32,6 +32,7 @@
 # define READ_ERR_MSG "Read error\n"
 # define SEPARATOR "####################"
 # define BORDER "|------------------|"
+# define ABS(x) ((x) < 0 ? - (x) : (x))
 
 typedef struct	s_grid
 {

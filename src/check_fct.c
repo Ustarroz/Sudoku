@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 ** 
 ** Started on  Fri Feb 26 22:33:33 2016 edouard puillandre
-** Last update Sat Feb 27 15:21:30 2016 edouard puillandre
+** Last update Sat Feb 27 15:46:49 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -20,7 +20,7 @@ void	fill_minus_one(int **tab)
     {
       j = - 1;
       while (++j < SIZE)
-	tab[i][j] = - 1;
+	tab[i][j] = 10;
     }
 }
 
@@ -30,7 +30,7 @@ int	check_digit(int nb, int *check)
 
   if (nb == 0)
     return (0);
-  a = 1 << (nb - 1);
+  a = 1 << (ABS(nb) - 1);
   if ((a & *check) == 0)
     *check = *check | a;
   else
