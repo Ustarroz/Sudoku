@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 21:10:32 2016 edouard puillandre
-** Last update Sat Feb 27 14:40:53 2016 Voyevoda
+** Last update Sat Feb 27 15:01:54 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -89,6 +89,7 @@ void	my_print_grid(int **grid)
 
   i = - 1;
   printf(BORDER);
+  printf("\n");
   while (++i < SIZE)
     {
       j = - 1;
@@ -98,9 +99,10 @@ void	my_print_grid(int **grid)
 	  printf(" X");
 	else
 	  printf(" %d", grid[i][j]);
-      printf("|");
+      printf("|\n");
     }
   printf(BORDER);
+  printf("\n");
 }
 
 void		my_print_sudo(t_sudo *sudo)
