@@ -5,7 +5,7 @@
 ## Login   <puilla_e@epitech.net>
 ## 
 ## Started on  Mon Oct 12 20:34:36 2015 edouard puillandre
-## Last update Sat Feb 27 23:16:21 2016 edouard puillandre
+## Last update Sat Feb 27 23:30:11 2016 edouard puillandre
 ##
 
 DEBUG	=	yes
@@ -42,7 +42,7 @@ OBJ	=	$(SRC:.c=.o)
 
 DIR	=	bin
 
-NAME	=	$(DIR)/sudoki-bi
+NAME	=	$(DIR)/chris-lee
 
 $(NAME): $(OBJ)
 ifeq ($(DEBUG), yes)

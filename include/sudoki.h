@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 18:56:22 2016 edouard puillandre
-** Last update Sat Feb 27 22:57:19 2016 edouard puillandre
+** Last update Sat Feb 27 23:58:38 2016 edouard puillandre
 */
 
 #ifndef		SUDOKI_H_
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <string.h>
 # include "get_next_line.h"
-# include <dirent.h>
 
 # define SIZE (9)
 # define LINE (19)

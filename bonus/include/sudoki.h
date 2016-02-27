@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 18:56:22 2016 edouard puillandre
-** Last update Sat Feb 27 22:54:38 2016 edouard puillandre
+** Last update Sat Feb 27 23:58:27 2016 edouard puillandre
 */
 
 #ifndef		SUDOKI_H_
@@ -13,13 +13,9 @@
 
 # include <stdlib.h>
 # include <stdio.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
 # include <unistd.h>
 # include <string.h>
 # include "get_next_line.h"
-# include <dirent.h>
 
 # define SIZE (9)
 # define LINE (19)
@@ -45,10 +41,21 @@ typedef struct	s_grid
   struct s_grid	*next;
 }		t_grid;
 
+typedef struct	s_variant
+{
+  int		size;
+  int		square;
+  int		line;
+  char		*sep;
+  char		*bord;
+}		t_variant;
+
 typedef struct	s_sudo
 {
   t_grid	*first;
   t_grid	*last;
+  char		*base;
+  t_variant	var;
 }		t_sudo;
 
 t_sudo	*my_init_sudo();
