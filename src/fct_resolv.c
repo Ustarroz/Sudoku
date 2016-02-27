@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 23:49:08 2016 edouard puillandre
-** Last update Sat Feb 27 18:55:05 2016 Voyevoda
+** Last update Sat Feb 27 19:04:47 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -15,7 +15,7 @@ int	seek_the_next_digit(int **tab, int i, int j, int check)
   int	k;
 
   k = - 1;
-  while(++k < SIZE)
+  while (++k < SIZE)
     {
       if ((check & 1) == 0 && (k + 1) > tab[i][j])
 	return (k + 1);
