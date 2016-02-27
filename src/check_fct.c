@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 ** 
 ** Started on  Fri Feb 26 22:33:33 2016 edouard puillandre
-** Last update Sat Feb 27 14:38:23 2016 edouard puillandre
+** Last update Sat Feb 27 15:21:30 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -59,18 +59,17 @@ int	check_column(int **tab, int i, int line_true)
   return (0);
 }
 
-int	check_square(int **tab, int i, int j)
+int	check_square(int **tab, int i_beg, int j_beg)
 {
   int	check;
-  int	j_beg;
-  int	i_beg;
+  int	i;
+  int	j;
 
   check = 0;
-  i_beg = i;
-  j_beg = j;
+  i = i_beg * SQUARE;
   while (i < SQUARE * (1 + i_beg))
     {
-      j = j_beg;
+      j = j_beg * SQUARE;
       while (j < SQUARE * (1 + j_beg))
 	{
 	  if (check_digit(tab[i][j], &check) == - 1)
