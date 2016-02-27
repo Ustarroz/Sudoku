@@ -5,12 +5,18 @@
 ## Login   <puilla_e@epitech.net>
 ## 
 ## Started on  Mon Oct 12 20:34:36 2015 edouard puillandre
-## Last update Sat Feb 27 23:06:24 2016 edouard puillandre
+## Last update Sat Feb 27 23:16:21 2016 edouard puillandre
 ##
 
 DEBUG	=	yes
 
 CC	=	gcc
+
+MKDIR	=	mkdir
+
+RM	=	rm -f
+
+RMDIR	=	rmdir
 
 CFLAGS	=	-Iinclude	\
 		-Wall		\
@@ -32,11 +38,11 @@ SRC	=	src/main.c		\
 		src/get_next_line.c	\
 		src/init_grid.c
 
-RM	=	rm -f
-
-NAME	=	bin/sudoki-bi
-
 OBJ	=	$(SRC:.c=.o)
+
+DIR	=	bin
+
+NAME	=	$(DIR)/sudoki-bi
 
 $(NAME): $(OBJ)
 ifeq ($(DEBUG), yes)
@@ -46,6 +52,7 @@ ifeq ($(DEBUG), yes)
 	@echo
 	@tput sgr0
 endif
+	$(MKDIR) $(DIR)
 	$(CC) $(OBJ) -o $(NAME) $(LDFLAGS)
 
 all: $(NAME)
@@ -55,6 +62,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RMDIR) $(DIR)
 
 re: fclean all
 
