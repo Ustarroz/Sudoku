@@ -5,7 +5,7 @@
 ** Login   <voyevoda@epitech.net>
 **
 ** Started on  Fri Feb 26 21:37:53 2016 Voyevoda
-** Last update Sat Feb 27 14:59:18 2016 Voyevoda
+** Last update Sat Feb 27 15:13:06 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -15,16 +15,12 @@ int	check_border(int fd)
   char	*str;
 
   if ((str = get_next_line(fd)) == NULL)
-    {
-      fprintf(stderr, READ_ERR_MSG);
-      return (- 1);
-    }
+    return (- 1);
   if (strcmp(str, BORDER) != 0)
     {
       fprintf(stderr, MAP_ERR_MSG);
-      return (- 1);
+      return (- 2);
     }
-  write(1, "border\n", 7);
   return (0);
 }
 
@@ -99,6 +95,7 @@ int	**my_init_grid(int fd)
 {
   int	**tab;
   int	i;
+  int	check;
 
   i = -1;
   if ((tab = malloc(sizeof(int *) * (SIZE))) == NULL)
@@ -109,7 +106,12 @@ int	**my_init_grid(int fd)
   while (++i < SIZE)
     if ((tab[i] = my_get_line(fd)) == NULL)
       return (NULL);
-  if (check_border(fd) == - 1)
+  if ((check = check_border(fd)) == - 1)
+    {
+      fprintf(stderr, READ_ERR_MSG);
+      return (NULL);
+    }
+  else if (check == - 2)
     return (NULL);
   return (tab);
 }
