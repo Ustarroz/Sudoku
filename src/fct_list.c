@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 21:10:32 2016 edouard puillandre
-** Last update Sat Feb 27 17:12:30 2016 edouard puillandre
+** Last update Sat Feb 27 18:18:23 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -101,8 +101,10 @@ void	my_print_grid(int **grid)
       while (++j < SIZE)
 	if (grid[i][j] == 10)
 	  printf(" X");
+	else if (grid[i][j] < 0)
+	  printf(" %d", grid[i][j]);
 	else
-	  printf(" %d", ABS(grid[i][j]));
+	  printf("  %d", grid[i][j]);
       printf("|\n");
     }
   printf(BORDER);
