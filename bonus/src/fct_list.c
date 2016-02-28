@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 21:10:32 2016 edouard puillandre
-** Last update Sun Feb 28 15:40:37 2016 edouard puillandre
+** Last update Sun Feb 28 16:33:22 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -102,6 +102,7 @@ void		free_sudo(t_sudo *sudo)
       tmp = tmp->next;
       free(elem);
     }
+  free(sudo->alph->base);
   free(sudo->alph);
   free(sudo);
 }
