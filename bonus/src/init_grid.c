@@ -5,22 +5,33 @@
 ** Login   <voyevoda@epitech.net>
 **
 ** Started on  Fri Feb 26 21:37:53 2016 Voyevoda
-** Last update Sat Feb 27 20:12:38 2016 Voyevoda
+** Last update Sun Feb 28 14:41:27 2016 Voyevoda
 */
 
 #include "sudoki.h"
 
-int	check_border(int fd)
+int	check_border(int fd, t_variant *alphabet)
 {
   char	*str;
+  int	i;
 
+  i = 0;
   if ((str = get_next_line(fd)) == NULL)
     return (- 1);
-  if (strcmp(str, BORDER) != 0)
+  if (str[0] != '|' || str[alphabet->line] != '|')
     {
       free(str);
       fprintf(stderr, MAP_ERR_MSG);
       return (- 2);
+    }
+  while (++i < alphabet->line)
+    {
+      if (str[i] != '-')
+	{
+	  free(str);
+	  fprintf(stderr, MAP_ERR_MSG);
+	  return (- 2);
+	}
     }
   free(str);
   return (0);
@@ -98,7 +109,7 @@ int	*my_get_line(int fd)
   return (line);
 }
 
-int	**my_init_grid(int fd)
+int	**my_init_grid(int fd, t_variant *alphabet)
 {
   int	**tab;
   int	i;
