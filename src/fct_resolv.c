@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 23:49:08 2016 edouard puillandre
-** Last update Sat Feb 27 20:03:09 2016 edouard puillandre
+** Last update Sun Feb 28 15:32:00 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -50,17 +50,17 @@ int	next_digit(int **tab, int i, int j)
   return (seek_the_next_digit(tab, i, j, check));
 }
 
-int	resolve_line(int **tab, int *i, int dir)
+int	resolve_line(int **tab, int i, int dir)
 {
   int	j;
 
   j = (dir == 1) ? 0 : 8;
   while (j < SIZE)
     {
-      if (tab[*i][j] >= 0)
+      if (tab[i][j] >= 0)
 	{
-	  tab[*i][j] = next_digit(tab, *i, j);
-	  if (tab[*i][j] == 0)
+	  tab[i][j] = next_digit(tab, i, j);
+	  if (tab[i][j] == 0)
 	    dir = - 1;
 	  else
 	    dir = 1;
@@ -81,7 +81,7 @@ int	my_resolve_brute(int **tab)
   dir = 1;
   while (i < SIZE)
     {
-      dir = resolve_line(tab, &i, dir);
+      dir = resolve_line(tab, i, dir);
       i = i + dir;
       if (i < 0)
 	{
