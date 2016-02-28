@@ -5,12 +5,39 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 21:10:32 2016 edouard puillandre
-** Last update Sat Feb 27 22:34:49 2016 edouard puillandre
+** Last update Sun Feb 28 14:44:36 2016 edouard puillandre
 */
 
 #include "sudoki.h"
 
-int		add_elem(t_sudo *sudo, int fd)
+int	check_border(int fd, t_variant *alphabet)
+{
+  char	*str;
+  int	i;
+
+  i = 0;
+  if ((str = get_next_line(fd)) == NULL)
+    return (- 1);
+  if (str[0] != '|' || str[alphabet->line] != '|')
+    {
+      free(str);
+      fprintf(stderr, MAP_ERR_MSG);
+      return (- 2);
+    }
+  while (++i < alphabet->line)
+    {
+      if (str[i] != '-')
+        {
+          free(str);
+          fprintf(stderr, MAP_ERR_MSG);
+          return (- 2);
+        }
+    }
+  free(str);
+  return (0);
+}
+
+int		add_elem(t_sudo *sudo, int fd, t_variant *alph)
 {
   t_grid	*grid;
 
@@ -19,7 +46,7 @@ int		add_elem(t_sudo *sudo, int fd)
       fprintf(stderr, MAL_ERR_MSG);
       return (- 1);
     }
-  if ((grid->tab = my_init_grid(fd)) == NULL)
+  if ((grid->tab = my_init_grid(fd, var)) == NULL)
     return (- 1);
   if (check_grid(grid->tab) == - 1)
     fill_minus_one(grid->tab);
@@ -37,7 +64,7 @@ int		add_elem(t_sudo *sudo, int fd)
   return (0);
 }
 
-t_sudo		*my_init_sudo()
+t_sudo		*my_init_sudo(t_variant	*alph)
 {
   t_sudo	*sudo;
   int		check;
@@ -49,7 +76,8 @@ t_sudo		*my_init_sudo()
     }
   sudo->first = NULL;
   sudo->last = NULL;
-  while ((check = check_border(0)) == 0)
+  sudo->var = alph;
+  while ((check = check_border(0, alph)) == 0)
     if (add_elem(sudo, 0) == - 1)
       return (NULL);
   if (check == - 2)
@@ -74,42 +102,6 @@ void		free_sudo(t_sudo *sudo)
       tmp = tmp->next;
       free(elem);
     }
+  free(sudo->var);
   free(sudo);
-}
-
-void	my_print_grid(int **grid)
-{
-  int	i;
-  int	j;
-
-  i = - 1;
-  printf(BORDER);
-  printf("\n");
-  while (++i < SIZE)
-    {
-      j = - 1;
-      printf("|");
-      while (++j < SIZE)
-	if (grid[i][j] == 10)
-	  printf(" X");
-	else
-	  printf(" %d", ABS(grid[i][j]));
-      printf("|\n");
-    }
-  printf(BORDER);
-  printf("\n");
-}
-
-void		my_print_sudo(t_sudo *sudo)
-{
-  t_grid	*tmp;
-
-  tmp = sudo->first;
-  while (tmp != NULL)
-    {
-      my_print_grid(tmp->tab);
-      tmp = tmp->next;
-      if (tmp != NULL)
-	printf(SEPARATOR);
-    }
 }

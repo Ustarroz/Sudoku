@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 18:56:22 2016 edouard puillandre
-** Last update Sun Feb 28 14:14:12 2016 edouard puillandre
+** Last update Sun Feb 28 14:43:11 2016 edouard puillandre
 */
 
 #ifndef		SUDOKI_H_
@@ -52,18 +52,18 @@ typedef struct	s_variant
   int		size;
   int		square;
   int		line;
+  char		*base;
 }		t_variant;
 
 typedef struct	s_sudo
 {
   t_grid	*first;
   t_grid	*last;
-  char		*base;
-  t_variant	var;
+  t_variant	*alph;
 }		t_sudo;
 
-t_sudo	*my_init_sudo();
-int	**my_init_grid(int fd);
+t_sudo	*my_init_sudo(t_variant *alph);
+int	**my_init_grid(int fd, t_variant *alph);
 int	*my_get_line(int fd);
 int	my_check_line(char *str);
 int	check_border(int fd);
@@ -71,7 +71,7 @@ int	check_grid(int **tab);
 int	check_digit(int nb, int *check);
 int	check_column(int **tab, int i, int line_true);
 int	check_square(int **tab, int i, int j);
-void	my_print_grid(int **tab);
+void	my_print_grid(int **tab, t_variant *alph);
 void	my_print_sudo(t_sudo *sudo);
 int	my_resolve_grid(int **tab);
 int	my_check_border(int fd);
