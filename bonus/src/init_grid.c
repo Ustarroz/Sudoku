@@ -5,7 +5,7 @@
 ** Login   <voyevoda@epitech.net>
 **
 ** Started on  Fri Feb 26 21:37:53 2016 Voyevoda
-** Last update Sun Feb 28 17:50:35 2016 Voyevoda
+** Last update Sun Feb 28 18:24:41 2016 Voyevoda
 */
 
 #include "sudoki.h"
