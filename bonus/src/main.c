@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 18:57:29 2016 edouard puillandre
-** Last update Sun Feb 28 16:38:00 2016 edouard puillandre
+** Last update Sun Feb 28 16:47:16 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -49,11 +49,12 @@ t_variant	*init_variant(char *str)
       return (NULL);
     }
   alpha->size = strlen(str);
-  if ((alpha->base = strdup(str)) == NULL)
+  if ((alpha->base = malloc(alpha->size + 1)) == NULL)
     {
       fprintf(stderr, MAL_ERR_MSG);
       return (NULL);
     }
+  alpha->base = strcpy(alpha->base, str);
   alpha->line = alpha->size * 2 + 1;
   i = 2;
   while (i * i < alpha->size)
