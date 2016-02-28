@@ -5,17 +5,39 @@
 ** Login   <voyevoda@epitech.net>
 **
 ** Started on  Fri Feb 26 21:37:53 2016 Voyevoda
-** Last update Sun Feb 28 16:18:44 2016 Voyevoda
+** Last update Sun Feb 28 16:34:26 2016 Voyevoda
 */
 
 #include "sudoki.h"
 
+int	str_to_int(char *s, int *line, t_variant *alphabet)
+{
+  int	i;
+  int	j;
+  int	k;
 
- int	check_char(char *str, t_variant *alphabet, int i)
- {
-  }
+  j = -1;
+  i = 2;
+  k = -1;
+  while (alphabet->base[++k] != '\0')
+    {
+      if (alphabet->base[k] == s[i])
+	while (++j != alphabet->size)
+	  {
+	    if (s[i] == ' ')
+	      line[j] = 0;
+	    else
+	      {
+		line[j] = k + 1;
+		return (0);
+	      }
+	    i = i + 2;
+	  }
+    }
+  return (-1);
+}
 
-int	my_check_line(char *str, t_variant *alphabet)
+int	my_check_line(char *str, t_variant *alphabet, int *line)
 {
   int	i;
   int	space;
@@ -34,7 +56,7 @@ int	my_check_line(char *str, t_variant *alphabet)
 	  fprintf(stderr, MAP_ERR_MSG);
 	  return (-1);
 	}
-      else if (space == 0 && (str_to_int(str, alphabet, i) == -1))
+      else if (space == 0 && (str_to_int(str, line,  alphabet) == -1))
 	{
 	  fprintf(stderr, MAP_ERR_MSG);
 	  return (-1);
@@ -42,33 +64,6 @@ int	my_check_line(char *str, t_variant *alphabet)
       space = 1 - space;
     }
   return (0);
-}
-
-int	str_to_int(char *s, int *line, t_variant *alphabet)
-{
-  int	i;
-  int	j;
-  int	k;
-
-  j = -1;
-  i = 2;
-  k = -1;
-  while (alphabet->base[++k] != '\0')
-    {
-      if (alphabet->base[k] == str[i])
-	while (++j != alphabet->size)
-	  {
-	    if (s[i] == ' ')
-	      line[j] = 0;
-	    else
-	      {
-		line[j] = k + 1;
-		return (0);
-	      }
-	    i = i + 2;
-	  }
-    }
-  return (-1);
 }
 
 int	*my_get_line(int fd, t_variant *alphabet)
@@ -87,7 +82,7 @@ int	*my_get_line(int fd, t_variant *alphabet)
       fprintf(stderr, MAL_ERR_MSG);
       return (NULL);
     }
-  if ((my_check_line(s, alphabet)) == -1)
+  if ((my_check_line(s, alphabet, line)) == -1)
     {
       free(s);
       return (NULL);
@@ -108,7 +103,7 @@ int	**my_init_grid(int fd, t_variant *alphabet)
       fprintf(stderr, MAL_ERR_MSG);
       return (NULL);
     }
-  while (++i < SIZE)
+  while (++i < alphabet->size)
     if ((tab[i] = my_get_line(fd, alphabet)) == NULL)
       return (NULL);
   if ((check = check_border(fd, alphabet)) == - 1)

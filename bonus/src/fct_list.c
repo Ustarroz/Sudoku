@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 21:10:32 2016 edouard puillandre
-** Last update Sun Feb 28 15:40:37 2016 edouard puillandre
+** Last update Sun Feb 28 16:26:49 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -49,7 +49,7 @@ int		add_elem(t_sudo *sudo, int fd, t_variant *alph)
   if ((grid->tab = my_init_grid(fd, alph)) == NULL)
     return (- 1);
   if (check_grid(grid->tab, alph) == - 1)
-    fill_minus_one(grid->tab);
+    fill_minus_one(grid->tab, alph);
   grid->next = NULL;
   if (sudo->first == NULL)
     {
@@ -78,7 +78,7 @@ t_sudo		*my_init_sudo(t_variant	*alph)
   sudo->last = NULL;
   sudo->alph = alph;
   while ((check = check_border(0, alph)) == 0)
-    if (add_elem(sudo, 0) == - 1)
+    if (add_elem(sudo, 0, alph) == - 1)
       return (NULL);
   if (check == - 2)
     return (NULL);
@@ -95,7 +95,7 @@ void		free_sudo(t_sudo *sudo)
   while (tmp != NULL)
     {
       i = - 1;
-      while (++i < SIZE)
+      while (++i < sudo->alph->size)
 	free(tmp->tab[i]);
       free(tmp->tab);
       elem = tmp;
