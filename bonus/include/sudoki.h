@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 18:56:22 2016 edouard puillandre
-** Last update Sat Feb 27 23:58:27 2016 edouard puillandre
+** Last update Sun Feb 28 14:14:12 2016 edouard puillandre
 */
 
 #ifndef		SUDOKI_H_
@@ -17,9 +17,6 @@
 # include <string.h>
 # include "get_next_line.h"
 
-# define SIZE (9)
-# define LINE (19)
-# define SQUARE (3)
 # define COL_TRUE (1)
 # define LINE_TRUE (0)
 # define MAL_ERR_MSG "Malloc error\n"
@@ -28,12 +25,21 @@
 # define OPEN_ERR_MSG "Open file error\n"
 # define READ_ERR_MSG "Read error\n"
 # define DOUBLE_ERR_MSG "Error: char two times in your base!\n"
+# define ABS(x) ((x) < 0 ? - (x) : (x))
+# define SIZE_DOUBLE (4)
+# define SIZE_TRIPLE (9)
+# define SIZE_QUADRA (16)
+# define SIZE_PENTA (25)
+# define SQUARE_DOUBLE (2)
+# define SQUARE_TRIPLE (3)
+# define SQUARE_QUADRA (4)
+# define SQUARE_PENTA (5)
+# define LINE_DOUBLE (9)
+# define LINE_TRIPLE (19)
+# define LINE_QUADRA (33)
+# define LINE_PENTA (51)
 # define SEPARATOR "####################\n"
 # define BORDER "|------------------|"
-# define ABS(x) ((x) < 0 ? - (x) : (x))
-# define LEN_DOUBLE (4)
-# define LEN_TRIPLE (9)
-# define LEN_QUADRU (16)
 
 typedef struct	s_grid
 {
@@ -46,8 +52,6 @@ typedef struct	s_variant
   int		size;
   int		square;
   int		line;
-  char		*sep;
-  char		*bord;
 }		t_variant;
 
 typedef struct	s_sudo
