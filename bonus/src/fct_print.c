@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 21:10:32 2016 edouard puillandre
-** Last update Sun Feb 28 16:36:01 2016 Voyevoda
+** Last update Sun Feb 28 17:51:43 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -33,10 +33,10 @@ void	my_print_grid(int **grid, t_variant *alph)
       j = - 1;
       printf("|");
       while (++j < alph->size)
-	if (grid[i][j] >= alph->size || grid[i][j] <= 0)
+	if (grid[i][j] > alph->size || grid[i][j] == 0)
 	  printf(" ?");
 	else
-	  printf(" %d", alph->base[ABS(grid[i][j]) - 1]);
+	  printf(" %c", alph->base[ABS(grid[i][j]) - 1]);
       printf("|\n");
     }
   my_print_border(alph);
