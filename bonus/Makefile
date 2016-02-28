@@ -5,7 +5,7 @@
 ## Login   <puilla_e@epitech.net>
 ## 
 ## Started on  Mon Oct 12 20:34:36 2015 edouard puillandre
-## Last update Sat Feb 27 23:30:11 2016 edouard puillandre
+## Last update Sun Feb 28 16:35:06 2016 Voyevoda
 ##
 
 DEBUG	=	yes
@@ -36,7 +36,8 @@ SRC	=	src/main.c		\
 		src/fct_list.c		\
 		src/fct_resolv.c	\
 		src/get_next_line.c	\
-		src/init_grid.c
+		src/init_grid.c		\
+		src/fct_print.c
 
 OBJ	=	$(SRC:.c=.o)
 

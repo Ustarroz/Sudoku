@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 18:56:22 2016 edouard puillandre
-** Last update Sun Feb 28 16:19:05 2016 edouard puillandre
+** Last update Sun Feb 28 16:33:41 2016 Voyevoda
 */
 
 #ifndef		SUDOKI_H_
@@ -65,7 +65,7 @@ typedef struct	s_sudo
 t_sudo	*my_init_sudo(t_variant *alph);
 int	**my_init_grid(int fd, t_variant *alph);
 int	*my_get_line(int fd, t_variant *alph);
-int	my_check_line(char *str, t_variant *alph);
+int	my_check_line(char *str, t_variant *alph, int *line);
 int	check_grid(int **tab, t_variant *alph);
 int	check_digit(int nb, int *check);
 int	check_column(int **tab, int i, int line_true, t_variant *alph);

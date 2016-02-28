@@ -1,11 +1,11 @@
 /*
 ** check_fct.c for sudoki-bi in /home/puilla_e/Semestre2/progelem/
-** 
+**
 ** Made by edouard puillandre
 ** Login   <puilla_e@epitech.net>
-** 
+**
 ** Started on  Fri Feb 26 22:33:33 2016 edouard puillandre
-** Last update Sun Feb 28 15:43:46 2016 edouard puillandre
+** Last update Sun Feb 28 16:24:31 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -92,7 +92,7 @@ int	check_grid(int **tab, t_variant *alph)
       return (- 1);
   i = - 1;
   while (++i < alph->size)
-    if (check_column(tab, i, LINE_TRUE) == - 1)
+    if (check_column(tab, i, LINE_TRUE, alph) == - 1)
       return (- 1);
   i = - 1;
   while (++i < alph->square)

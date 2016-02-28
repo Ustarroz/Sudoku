@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 23:49:08 2016 edouard puillandre
-** Last update Sun Feb 28 15:31:13 2016 edouard puillandre
+** Last update Sun Feb 28 16:27:20 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -96,7 +96,7 @@ int	my_resolve_brute(int **tab, t_variant *alph)
     }
   return (0);
 }
-  
+
 void		my_resolve_all(t_sudo *sudo)
 {
   t_grid	*tmp;
@@ -104,7 +104,7 @@ void		my_resolve_all(t_sudo *sudo)
   tmp = sudo->first;
   while (tmp != NULL)
     {
-      my_resolve_brut(tmp->tab, sudo->alph);
+      my_resolve_brute(tmp->tab, sudo->alph);
       tmp = tmp->next;
     }
 }

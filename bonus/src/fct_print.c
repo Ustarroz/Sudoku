@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 21:10:32 2016 edouard puillandre
-** Last update Sun Feb 28 14:41:30 2016 edouard puillandre
+** Last update Sun Feb 28 16:36:01 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -28,7 +28,7 @@ void	my_print_grid(int **grid, t_variant *alph)
 
   i = - 1;
   my_print_border(alph);
-  while (++i < alph-<size)
+  while (++i < alph->size)
     {
       j = - 1;
       printf("|");
@@ -55,7 +55,7 @@ void		my_print_sudo(t_sudo *sudo)
       if (tmp != NULL)
 	{
 	  i = - 1;
-	  while (++i < alph->line)
+	  while (++i < sudo->alph->line)
 	    printf("#");
 	  printf("#\n");
 	}
