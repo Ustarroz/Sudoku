@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 18:56:22 2016 edouard puillandre
-** Last update Sun Feb 28 14:43:11 2016 edouard puillandre
+** Last update Sun Feb 28 15:17:48 2016 edouard puillandre
 */
 
 #ifndef		SUDOKI_H_
@@ -73,10 +73,9 @@ int	check_column(int **tab, int i, int line_true);
 int	check_square(int **tab, int i, int j);
 void	my_print_grid(int **tab, t_variant *alph);
 void	my_print_sudo(t_sudo *sudo);
-int	my_resolve_grid(int **tab);
+int	my_resolve_grid(int **tab, t_variant *alph);
 int	my_check_border(int fd);
 void	fill_minus_one(int **tab);
-int	my_resolve_brute(int **tab);
 int	my_resolve_softer(int **tab);
 void	my_resolve_all(t_sudo *sudo);
 void	free_sudo(t_sudo *sudo);
