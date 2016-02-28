@@ -5,37 +5,25 @@
 ** Login   <voyevoda@epitech.net>
 **
 ** Started on  Fri Feb 26 21:37:53 2016 Voyevoda
-** Last update Sun Feb 28 14:41:27 2016 Voyevoda
+** Last update Sun Feb 28 15:17:23 2016 Voyevoda
 */
 
 #include "sudoki.h"
 
-int	check_border(int fd, t_variant *alphabet)
-{
-  char	*str;
-  int	i;
 
-  i = 0;
-  if ((str = get_next_line(fd)) == NULL)
-    return (- 1);
-  if (str[0] != '|' || str[alphabet->line] != '|')
-    {
-      free(str);
-      fprintf(stderr, MAP_ERR_MSG);
-      return (- 2);
-    }
-  while (++i < alphabet->line)
-    {
-      if (str[i] != '-')
-	{
-	  free(str);
-	  fprintf(stderr, MAP_ERR_MSG);
-	  return (- 2);
-	}
-    }
-  free(str);
-  return (0);
-}
+ int	check_char(char *str, t_variant *alphabet, int i)
+ {
+   int	j;
+
+   j = -1;
+   while (alphabet->base[++j] != '\0')
+     {
+       if (alphabet->base[j] == str[i])
+	 return (0);
+     }
+   fprintf(stderr, MAP_ERR_MSG);
+   return (-1);
+ }
 
 int	my_check_line(char *str)
 {
@@ -56,7 +44,7 @@ int	my_check_line(char *str)
 	  fprintf(stderr, MAP_ERR_MSG);
 	  return (-1);
 	}
-      else if (space == 0 && (str[i] <= '0' || str[i] >'9') && str[i] != ' ')
+      else if (space == 0 && (check_char == -1))
 	{
 	  fprintf(stderr, MAP_ERR_MSG);
 	  return (-1);

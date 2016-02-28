@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 18:57:29 2016 edouard puillandre
-** Last update Sat Feb 27 22:55:14 2016 edouard puillandre
+** Last update Sun Feb 28 15:23:25 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -17,8 +17,8 @@ int	check_av(char *str)
   int	k;
 
   len = strlen(str);
-  if (len != LEN_DOUBLE || len != LEN_TRIPLE ||
-      len != LEN_QUADRU)
+  if (len != SIZE_DOUBLE || len != SIZE_TRIPLE ||
+      len != SIZE_QUADRA)
     return (1);
   i = - 1;
   while (str[++i] != '\0')
