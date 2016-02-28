@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 18:56:22 2016 edouard puillandre
-** Last update Sun Feb 28 15:28:38 2016 edouard puillandre
+** Last update Sun Feb 28 15:47:28 2016 edouard puillandre
 */
 
 #ifndef		SUDOKI_H_
@@ -38,8 +38,6 @@
 # define LINE_TRIPLE (19)
 # define LINE_QUADRA (33)
 # define LINE_PENTA (51)
-# define SEPARATOR "####################\n"
-# define BORDER "|------------------|"
 
 typedef struct	s_grid
 {
@@ -64,20 +62,19 @@ typedef struct	s_sudo
 
 t_sudo	*my_init_sudo(t_variant *alph);
 int	**my_init_grid(int fd, t_variant *alph);
-int	*my_get_line(int fd);
-int	my_check_line(char *str);
-int	check_border(int fd);
-int	check_grid(int **tab);
+int	*my_get_line(int fd, t_variant *alph);
+int	my_check_line(char *str, t_variant *alph);
+int	check_grid(int **tab, t_variant *alph);
 int	check_digit(int nb, int *check);
-int	check_column(int **tab, int i, int line_true);
-int	check_square(int **tab, int i, int j);
+int	check_column(int **tab, int i, int line_true, t_variant *alph);
+int	check_square(int **tab, int i, int j, t_variant *alph);
 void	my_print_grid(int **tab, t_variant *alph);
 void	my_print_sudo(t_sudo *sudo);
 int	my_resolve_grid(int **tab, t_variant *alph);
-int	my_check_border(int fd);
-void	fill_minus_one(int **tab);
+int	check_border(int fd, t_variant *alph);
+void	fill_minus_one(int **tab, t_variant *alph);
 int	my_resolve_softer(int **tab);
-int	my_resolve_brute(int **tab);
+int	my_resolve_brute(int **tab, t_variant *alph);
 void	my_resolve_all(t_sudo *sudo);
 void	free_sudo(t_sudo *sudo);
 
