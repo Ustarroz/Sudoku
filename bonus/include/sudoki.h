@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 18:56:22 2016 edouard puillandre
-** Last update Sun Feb 28 15:47:28 2016 edouard puillandre
+** Last update Sun Feb 28 16:19:05 2016 edouard puillandre
 */
 
 #ifndef		SUDOKI_H_
@@ -20,11 +20,13 @@
 # define COL_TRUE (1)
 # define LINE_TRUE (0)
 # define MAL_ERR_MSG "Malloc error\n"
-# define ARG_ERR_MSG "Incorrect number of argument\n"
+# define ARG_ERR_MSG "Usage: ./sudoki-bi base < grid\n"
+# define LEN_ERR_MSG "Incorrect base: should be len 4, 9, 16 or 25\n"
+# define INC_ERR_MSG "Incorrect base: char 'space' or '?' forbidden\n"
+# define DOUBLE_ERR_MSG "Incorrect base: char present two times\n"
 # define MAP_ERR_MSG "MAP ERROR\n"
 # define OPEN_ERR_MSG "Open file error\n"
 # define READ_ERR_MSG "Read error\n"
-# define DOUBLE_ERR_MSG "Error: char two times in your base!\n"
 # define ABS(x) ((x) < 0 ? - (x) : (x))
 # define SIZE_DOUBLE (4)
 # define SIZE_TRIPLE (9)

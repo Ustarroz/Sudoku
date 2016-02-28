@@ -5,7 +5,7 @@
 ** Login   <puilla_e@epitech.net>
 **
 ** Started on  Fri Feb 26 18:57:29 2016 edouard puillandre
-** Last update Sun Feb 28 15:32:57 2016 Voyevoda
+** Last update Sun Feb 28 16:17:49 2016 edouard puillandre
 */
 
 #include "sudoki.h"
@@ -17,9 +17,13 @@ int	check_av(char *str)
   int	k;
 
   len = strlen(str);
-  if (len != SIZE_DOUBLE || len != SIZE_TRIPLE ||
-      len != SIZE_QUADRA || len != SIZE_PENTA)
-    return (1);
+  if (len != SIZE_DOUBLE && len != SIZE_TRIPLE &&
+      len != SIZE_QUADRA && len != SIZE_PENTA)
+    return (2);
+  i = - 1;
+  while (str[++i] != '\0')
+    if (str[i] == ' ' || str[i] == '?')
+      return (3);
   i = - 1;
   while (str[++i] != '\0')
     {
@@ -31,16 +35,27 @@ int	check_av(char *str)
 	    return (1);
 	  }
     }
-  k = - 1;
   return (0);
 }
 
-t_variant	*init_variant()
+t_variant	*init_variant(char *str)
 {
   t_variant	*alpha;
+  int		len;
+  int		i;
 
   if ((alpha = malloc(sizeof(t_variant))) == NULL)
-    return (NULL);
+    {
+      fprintf(stderr, MAL_ERR_MSG);
+      return (NULL);
+    }
+  alpha->size = strlen(str);
+  alpha->base = str;
+  alpha->line = alpha->size * 2 + 1;
+  i = 2;
+  while (i * i < alpha->size)
+    i = i + 1;
+  alpha->square = i;
   return (alpha);
 }
 
@@ -48,14 +63,23 @@ int		main(int ac, char **av)
 {
   t_sudo	*sudo;
   t_variant	*alphabet;
+  int		check;
 
-  if ((alphabet = init_variant()) == NULL)
-    return (1);
-  if (ac != 2 || check_av(av[1]) == 1)
+  if (ac != 2)
     {
       fprintf(stderr, ARG_ERR_MSG);
       return (1);
     }
+  if (check = check_av(av[1]) >= 1)
+    {
+      if (check == 3)
+	fprintf(stderr, INC_ERR_MSG);
+      else if (check == 2)
+	fprintf(stderr, LEN_ERR_MSG);
+      return (1);
+    }
+  if ((alphabet = init_variant(av[1])) == NULL)
+    return (1);
   if ((sudo = my_init_sudo(alphabet)) == NULL)
     return (1);
   my_resolve_all(sudo);
