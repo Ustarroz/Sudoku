@@ -5,7 +5,7 @@
 ** Login   <voyevoda@epitech.net>
 **
 ** Started on  Fri Feb 26 21:37:53 2016 Voyevoda
-** Last update Sun Feb 28 18:24:41 2016 Voyevoda
+** Last update Sun Feb 28 20:39:32 2016 Voyevoda
 */
 
 #include "sudoki.h"
@@ -24,7 +24,7 @@ int	str_to_int(char *s, int *line, t_variant *alphabet, int i)
     {
       if (alphabet->base[k] == s[i])
 	{
-	  line[i / 2 - 1] = -k - 1;
+	  line[i / 2 - 1] = - k - 1;
 	  return (0);
 	}
     }
